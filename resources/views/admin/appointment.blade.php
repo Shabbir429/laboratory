@@ -90,7 +90,7 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <!-- Your form -->
-                                                                    <form method="POST" id="upload"
+                                                                    <form method="POST" id="upload" enctype='multipart/form-data'
                                                                         action="{{ route('appointment.upload', ['id' => $data->id]) }}">
                                                                         @csrf
                                                                         @method('POST')

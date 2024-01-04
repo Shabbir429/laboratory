@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class appointmentController extends Controller
 {
@@ -64,11 +65,11 @@ class appointmentController extends Controller
 
     function upload(Request $request,$id)
     {
-        $file=$request->input('file');
+        $file=$request->file('file');
         // $fileName = time().'.'.$request->file->extension();
-        $fileName = time().'.'.$request->file;
-        $request->input('file')->move(public_path('report'), $fileName);
-
+        $fileName = time().'.'.$file->extension();
+        $destinationPath = 'upload/';
+        $file->move($destinationPath, $fileName);
         return back()
             ->with('success','You have successfully upload file.')
             ->with('file', $fileName);
