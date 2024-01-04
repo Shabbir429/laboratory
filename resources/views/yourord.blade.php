@@ -95,8 +95,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="m_number">Mobile Number:</label>
-                                <input type="text" class="form-control" id="m_number" name="m_number"
+                                <label for="phone">Mobile Number:</label>
+                                <input type="text" class="form-control" id="phone" name="phone"
                                     placeholder="Enter your mobile number" pattern="[0-9]+"
                                     title="Please enter numbers only" required>
                             </div>
@@ -134,7 +134,7 @@
                                         style="background: #fd7e14;">{{ $appointment->status }}</span></td>
                                 <td>
                                     <div class="d-flex">
-                                        <button type="button" class="btn btn-primary me-2" onclick="openEditModal('{{ $appointment->id }}','{{ $appointment->name }}','{{ $appointment->address }}','{{ $appointment->appointment_date }}','{{ $appointment->m_number }}')">Edit</button>
+                                        <button type="button" class="btn btn-primary me-2" onclick="openEditModal('{{ $appointment->id }}','{{ $appointment->name }}','{{ $appointment->address }}','{{ $appointment->appointment_date }}','{{ $appointment->phone }}')">Edit</button>
                                     
                                         <form method="POST" action="{{ route('delete.appointment') }}" onsubmit="return confirm('Are you sure you want to delete?')">
                                             @csrf
@@ -180,9 +180,9 @@
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="m_number">Mobile Number:</label>
+                                                            <label for="phone">Mobile Number:</label>
                                                             <input type="text" class="form-control"
-                                                                id="edit_m_number" name="edit_m_number"
+                                                                id="edit_phone" name="edit_phone"
                                                                 placeholder="Enter your mobile number"
                                                                 pattern="[0-9]+" title="Please enter numbers only"
                                                                 required>
@@ -208,11 +208,11 @@
     </div>
     @include('footer')
     <script>
-        function openEditModal(id, name, address, appointment_date, m_number) {
+        function openEditModal(id, name, address, appointment_date, phone) {
             document.getElementById('edit_name').value = name;
             document.getElementById('edit_address').value = address;
             document.getElementById('edit_appointment_date').value = appointment_date;
-            document.getElementById('edit_m_number').value = m_number;
+            document.getElementById('phone').value = phone;
 
             const editModal = new bootstrap.Modal(document.getElementById('edit'));
             editModal.show();

@@ -13,7 +13,9 @@ class Appointment extends Model
         'name', 
         'address', 
         'appointment_date', 
-        'm_number',
-        'u_id'
+        'phone',
+        'u_id',
+        'status',
+        'path'
     ];
 }

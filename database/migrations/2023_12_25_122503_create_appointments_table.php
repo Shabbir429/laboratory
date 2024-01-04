@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->text('address');
             $table->date('appointment_date');
-            $table->string('m_number');
+            $table->string('phone');
             $table->unsignedBigInteger('u_id');
             $table->foreign('u_id')->references('id')->on('users'); 
-            $table->string('status')->nullable()->default('pending');
+            $table->enum('status', ['Pending', 'Rejected', 'Active'])->default('Pending');
+            $table->string('path')->nullable();
             $table->timestamps();
         });
     }

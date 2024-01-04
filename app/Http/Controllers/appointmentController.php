@@ -21,9 +21,9 @@ class appointmentController extends Controller
             'name' => 'required|string',
             'address' => 'required|string',
             'appointment_date' => 'required|date',
-            'm_number' => 'required|numeric',
+            'phone' => 'required|numeric',
         ]);
-        $validatedData['status'] = 'pendding';
+        // $validatedData['status'] = 'pendding';
         $validatedData['u_id'] = Auth::id();
         // Log::debug($validatedData);
         Appointment::create($validatedData);
@@ -51,7 +51,7 @@ class appointmentController extends Controller
         $appointment->name = $request->input('edit_name');
         $appointment->address = $request->input('edit_address');
         $appointment->appointment_date = $request->input('edit_appointment_date');
-        $appointment->m_number = $request->input('edit_m_number');
+        $appointment->phone = $request->input('edit_phone');
 
         $appointment->save();
         return redirect()->back()->with('success', 'Appointment Edited successfully');
@@ -62,4 +62,15 @@ class appointmentController extends Controller
         return view('admin/appointment',['appointment'=>$appointment]);
     }
 
+    function upload(Request $request,$id)
+    {
+        $file=$request->input('file');
+        // $fileName = time().'.'.$request->file->extension();
+        $fileName = time().'.'.$request->file;
+        $request->input('file')->move(public_path('report'), $fileName);
+
+        return back()
+            ->with('success','You have successfully upload file.')
+            ->with('file', $fileName);
+    }
 }
