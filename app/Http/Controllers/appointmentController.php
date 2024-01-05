@@ -13,7 +13,7 @@ class appointmentController extends Controller
     public function index()
     {
         $userAppointments = Appointment::where('u_id', auth()->user()->id)->get();
-
+        // Log::debug($userAppointments);
         return view('yourord', compact('userAppointments'));
     }
     public function store(Request $request)
@@ -46,32 +46,44 @@ class appointmentController extends Controller
 
     public function updateappo(Request $request, $id)
     {
-        $appointment = Appointment::findOrFail($id);
-
+        $appointment = Appointment::findOrFail($request->input('edit_id'));
         // Update appointment details based on form input
         $appointment->name = $request->input('edit_name');
         $appointment->address = $request->input('edit_address');
         $appointment->appointment_date = $request->input('edit_appointment_date');
         $appointment->phone = $request->input('edit_phone');
-
+        // log::debug($appointment);
         $appointment->save();
         return redirect()->back()->with('success', 'Appointment Edited successfully');
     }
     function getappointmets()
     {
-        $appointment=Appointment::all();
-        return view('admin/appointment',['appointment'=>$appointment]);
+        $appointment = Appointment::all();
+        return view('admin/appointment', ['appointment' => $appointment]);
     }
 
-    function upload(Request $request,$id)
+    function upload(Request $request, $id)
     {
-        $file=$request->file('file');
+        log::debug($id);
+        $appointment = Appointment::findOrFail($id);
+        $file = $request->file('file');
         // $fileName = time().'.'.$request->file->extension();
-        $fileName = time().'.'.$file->extension();
+        $fileName = time() . '.' . $file->extension();
         $destinationPath = 'upload/';
-        $file->move($destinationPath, $fileName);
+        $filepath = $file->move($destinationPath, $fileName);
+
+        $appointment->path = $filepath;
+        $appointment->status = 'Success';
+        $appointment->save();
         return back()
-            ->with('success','You have successfully upload file.')
+            ->with('success', 'You have successfully upload file.')
             ->with('file', $fileName);
+    }
+    function pdfview($id)
+    {
+        $data=Appointment::find($id);
+        $path=$data->path;
+        
+        return response()->file(public_path($path), ['content-type' => 'application/pdf']);
     }
 }

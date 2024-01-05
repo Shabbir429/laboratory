@@ -130,8 +130,17 @@
                                 <td>{{ $counter }}.</td>
                                 <td>{{ $appointment->name }}</td>
                                 <td>{{ $appointment->appointment_date }}</td>
-                                <td><span class="badge rounded-pill"
-                                        style="background: #fd7e14;">{{ $appointment->status }}</span></td>
+                                <td><span class="badge rounded-pill" style="background: 
+                                    @php 
+                                        if ($appointment->status === 'Pending') 
+                                            echo '#fd7e14'; 
+                                        elseif ($appointment->status === 'Success') 
+                                            echo 'green'; 
+                                        else 
+                                            echo 'red'; 
+                                    @endphp">
+                                    {{ $appointment->status }}
+                                </span></td>
                                 <td>
                                     <div class="d-flex">
                                         <button type="button" class="btn btn-primary me-2" onclick="openEditModal('{{ $appointment->id }}','{{ $appointment->name }}','{{ $appointment->address }}','{{ $appointment->appointment_date }}','{{ $appointment->phone }}')">Edit</button>
@@ -141,6 +150,10 @@
                                             @method('DELETE')
                                             <input type="hidden" name="id" value="{{ $appointment->id }}">
                                             <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                        <form method="POST" action="{{ route('pdf.appointments', ['id' => $appointment->id]) }}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary me-2">View Report</button>
                                         </form>
                                     </div>                                    
                                     {{-- edit modle --}}
@@ -159,6 +172,8 @@
                                                         action="{{ route('edit.appointment', ['id' => $appointment->id]) }}">
                                                         @csrf
                                                         @method('PUT')
+                                                        <input type="hidden" class="form-control"
+                                                                    id="edit_id" name="edit_id" required>
                                                         <div class="form-group">
                                                             <label for="name">Name:</label>
                                                             <input type="text" class="form-control" id="edit_name"
@@ -201,18 +216,18 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
-        @endif
+            </div> @endif
 
 
     </div>
     @include('footer')
     <script>
         function openEditModal(id, name, address, appointment_date, phone) {
+            document.getElementById('edit_id').value = id;
             document.getElementById('edit_name').value = name;
             document.getElementById('edit_address').value = address;
             document.getElementById('edit_appointment_date').value = appointment_date;
-            document.getElementById('phone').value = phone;
+            document.getElementById('edit_phone').value = phone;
 
             const editModal = new bootstrap.Modal(document.getElementById('edit'));
             editModal.show();

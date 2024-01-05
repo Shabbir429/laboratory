@@ -44,8 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/user/{id}/edit',[authController::class,'edituser'])->name('user.edit');
 
     Route::get('/appointment',[appointmentController::class,'getappointmets'])->name('appointment.all');
-    Route::post('/appointment/{id}/upload',[appointmentController::class,'upload'])->name('appointment.upload');
-    Route::get('/appointment/edit',[appointmentController::class,'admindeleteappo'])->name('appointment.edit');
+    Route::put('/appointment/{id}/upload',[appointmentController::class,'upload'])->name('appointment.upload');
 
 
 
@@ -53,6 +52,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/contact', [contactusController::class,'store'])->name('contact.post');
 
     Route::get('/yorder', [appointmentController::class,'index'])->name('user.appointments');
+    Route::post('/yorder/{id}/pdf', [appointmentController::class,'pdfview'])->name('pdf.appointments');
     Route::post('/yorder',[appointmentController::class,'store'])->name('store.appointment');
     Route::delete('/deleteappo',[appointmentController::class,'deleteappo'])->name('delete.appointment');
     Route::put('/yorder/{id}', [appointmentController::class, 'updateappo'])->name('edit.appointment');

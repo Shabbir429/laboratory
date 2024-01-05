@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone');
             $table->unsignedBigInteger('u_id');
             $table->foreign('u_id')->references('id')->on('users'); 
-            $table->enum('status', ['Pending', 'Rejected', 'Active'])->default('Pending');
+            $table->enum('status', ['Pending', 'Rejected', 'Success'])->default('Pending');
             $table->string('path')->nullable();
             $table->timestamps();
         });

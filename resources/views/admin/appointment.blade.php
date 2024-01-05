@@ -93,7 +93,7 @@
                                                                     <form method="POST" id="upload" enctype='multipart/form-data'
                                                                         action="{{ route('appointment.upload', ['id' => $data->id]) }}">
                                                                         @csrf
-                                                                        @method('POST')
+                                                                        @method('PUT')
                                                                         <div class="form-group">
                                                                             <label for="name">File Upload:</label>
                                                                             <input type="file" class="form-control"
@@ -113,7 +113,7 @@
                                             </td>
                                         </tr>
                                         {{-- edit modle --}}
-                                        <div class="modal fade" id="edit" tabindex="-1"
+                                        <div class="modal fade" id="adminedit" tabindex="-1"
                                             aria-labelledby="editTitle" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -125,10 +125,12 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <!-- Your form -->
-                                                        <form method="POST" id="edit"
+                                                        <form method="POST" id="adminedit"
                                                             action="{{ route('edit.appointment', ['id' => $data->id]) }}">
                                                             @csrf
                                                             @method('PUT')
+                                                            <input type="hidden" class="form-control"
+                                                                    id="edit_id" name="edit_id" required>
                                                             <div class="form-group">
                                                                 <label for="name">Name:</label>
                                                                 <input type="text" class="form-control"
@@ -182,12 +184,13 @@
 </div>
 <script>
     function openEditModal(id, name, address, appointment_date, phone) {
+        document.getElementById('edit_id').value = id;
         document.getElementById('edit_name').value = name;
         document.getElementById('edit_address').value = address;
         document.getElementById('edit_appointment_date').value = appointment_date;
         document.getElementById('edit_phone').value = phone;
 
-        const editModal = new bootstrap.Modal(document.getElementById('edit'));
+        const editModal = new bootstrap.Modal(document.getElementById('adminedit'));
         editModal.show();
     }
 
@@ -195,5 +198,6 @@
         const editModal = new bootstrap.Modal(document.getElementById('upload'));
         editModal.show();
     }
+    
 </script>
 @include('admin/footer')
