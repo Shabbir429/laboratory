@@ -118,6 +118,7 @@
                         <tr>
                             <th scope="col">Ord No.</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Address</th>
                             <th scope="col">Appointment Date</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
@@ -129,36 +130,43 @@
                             <tr>
                                 <td>{{ $counter }}.</td>
                                 <td>{{ $appointment->name }}</td>
+                                <td>{{ $appointment->address }}</td>
                                 <td>{{ $appointment->appointment_date }}</td>
-                                <td><span class="badge rounded-pill" style="background: 
-                                    @php 
-                                        if ($appointment->status === 'Pending') 
+                                <td><span class="badge rounded-pill"
+                                        style="background: 
+                                    @php if ($appointment->status === 'Pending') 
                                             echo '#fd7e14'; 
                                         elseif ($appointment->status === 'Success') 
                                             echo 'green'; 
                                         else 
-                                            echo 'red'; 
-                                    @endphp">
-                                    {{ $appointment->status }}
-                                </span></td>
+                                            echo 'red'; @endphp">
+                                        {{ $appointment->status }}
+                                    </span></td>
                                 <td>
                                     <div class="d-flex">
-                                        <button type="button" class="btn btn-primary me-2" onclick="openEditModal('{{ $appointment->id }}','{{ $appointment->name }}','{{ $appointment->address }}','{{ $appointment->appointment_date }}','{{ $appointment->phone }}')">Edit</button>
-                                    
-                                        <form method="POST" action="{{ route('delete.appointment') }}" onsubmit="return confirm('Are you sure you want to delete?')">
+                                        <button type="button" class="btn btn-info me-2"
+                                            onclick="openEditModal('{{ $appointment->id }}','{{ $appointment->name }}','{{ $appointment->address }}','{{ $appointment->appointment_date }}','{{ $appointment->phone }}')"
+                                            style="width: 80px;">Edit</button>
+
+                                        <form method="POST" action="{{ route('delete.appointment') }}"
+                                            onsubmit="return confirm('Are you sure you want to delete?')">
                                             @csrf
                                             @method('DELETE')
                                             <input type="hidden" name="id" value="{{ $appointment->id }}">
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger me-2"
+                                                style="width: 100px;">Delete</button>
                                         </form>
-                                        <form method="POST" action="{{ route('pdf.appointments', ['id' => $appointment->id]) }}">
+
+                                        <form method="POST"
+                                            action="{{ route('pdf.appointments', ['id' => $appointment->id]) }}">
                                             @csrf
-                                            <button type="submit" class="btn btn-primary me-2">View Report</button>
+                                            <button type="submit" class="btn btn-primary me-2"
+                                                style="width: 120px;">View Report</button>
                                         </form>
-                                    </div>                                    
+                                    </div>
                                     {{-- edit modle --}}
-                                    <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editTitle"
-                                        aria-hidden="true">
+                                    <div class="modal fade" id="edit" tabindex="-1"
+                                        aria-labelledby="editTitle" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -172,8 +180,8 @@
                                                         action="{{ route('edit.appointment', ['id' => $appointment->id]) }}">
                                                         @csrf
                                                         @method('PUT')
-                                                        <input type="hidden" class="form-control"
-                                                                    id="edit_id" name="edit_id" required>
+                                                        <input type="hidden" class="form-control" id="edit_id"
+                                                            name="edit_id" required>
                                                         <div class="form-group">
                                                             <label for="name">Name:</label>
                                                             <input type="text" class="form-control" id="edit_name"
@@ -216,7 +224,8 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div> @endif
+            </div>
+        @endif
 
 
     </div>

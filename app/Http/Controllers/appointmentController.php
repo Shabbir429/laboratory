@@ -64,10 +64,14 @@ class appointmentController extends Controller
 
     function upload(Request $request, $id)
     {
+        $request->validate([
+            'file' => 'required|mimes:pdf,xlx,csv|max:2048',
+        ]);
+        log::debug($request->input('id'));
+        log::debug("hello");
         log::debug($id);
         $appointment = Appointment::findOrFail($id);
         $file = $request->file('file');
-        // $fileName = time().'.'.$request->file->extension();
         $fileName = time() . '.' . $file->extension();
         $destinationPath = 'upload/';
         $filepath = $file->move($destinationPath, $fileName);

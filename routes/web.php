@@ -44,8 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/user/{id}/edit',[authController::class,'edituser'])->name('user.edit');
 
     Route::get('/appointment',[appointmentController::class,'getappointmets'])->name('appointment.all');
-    Route::put('/appointment/{id}/upload',[appointmentController::class,'upload'])->name('appointment.upload');
-
+    Route::post('/appointment/{id}/pdfupload',[appointmentController::class,'upload'])->name('appointment.upload');
 
 
     Route::get('/contact', [contactusController::class,'index'])->name('contact.index');

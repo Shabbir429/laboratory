@@ -60,7 +60,7 @@
                                             <td><span class="tag tag-success">{{ $data->status }}</span></td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <button type="button" class="btn btn-primary me-2"
+                                                    <button type="button" class="btn btn-info me-2"
                                                         onclick="openEditModal('{{ $data->id }}','{{ $data->name }}','{{ $data->address }}','{{ $data->appointment_date }}','{{ $data->phone }}')">Edit</button>
                                                     <form method="POST" action="{{ route('delete.appointment') }}"
                                                         onsubmit="return confirm('Are you sure you want to delete?')">
@@ -71,14 +71,14 @@
                                                         <button type="submit"
                                                             class="btn btn-danger me-2">Delete</button>
                                                     </form>
-                                                    <button type="submit" onclick="upload()"
+                                                    <button type="submit" onclick="upload('{{ $data->id }}')"
                                                         class="btn btn-primary col start">
                                                         <i class="fas fa-upload"></i>
                                                         <span>Start upload</span>
                                                     </button>
                                                     {{-- upload modle --}}
-                                                    <div class="modal fade" id="upload" tabindex="-1"
-                                                        aria-labelledby="editTitle" aria-hidden="true">
+                                                    <div class="modal fade" id="upload_{{ $data->id }}"
+                                                        tabindex="-1" aria-labelledby="editTitle" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -90,20 +90,16 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <!-- Your form -->
-                                                                    <form method="POST" id="upload" enctype='multipart/form-data'
-                                                                        action="{{ route('appointment.upload', ['id' => $data->id]) }}">
+                                                                    <form action="{{ route('appointment.upload', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
                                                                         @csrf
-                                                                        @method('PUT')
                                                                         <div class="form-group">
-                                                                            <label for="name">File Upload:</label>
-                                                                            <input type="file" class="form-control"
-                                                                                id="file" name="file"
-                                                                                placeholder="Upload file" required>
+                                                                            <label for="file">File Upload:</label>
+                                                                            <input type="file" class="form-control" id="file" name="file" placeholder="Upload file" required>
                                                                         </div>
-                                                                        <button type="button" class="btn btn-secondary"
+                                                                        <button type="button" class="btn btn-warning cancel"
                                                                             data-bs-dismiss="modal">Close</button>
                                                                         <button type="submit"
-                                                                            class="btn btn-primary">Update</button>
+                                                                            class="btn btn-primary">Upload</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
@@ -129,8 +125,8 @@
                                                             action="{{ route('edit.appointment', ['id' => $data->id]) }}">
                                                             @csrf
                                                             @method('PUT')
-                                                            <input type="hidden" class="form-control"
-                                                                    id="edit_id" name="edit_id" required>
+                                                            <input type="hidden" class="form-control" id="edit_id"
+                                                                name="edit_id" required>
                                                             <div class="form-group">
                                                                 <label for="name">Name:</label>
                                                                 <input type="text" class="form-control"
@@ -194,10 +190,14 @@
         editModal.show();
     }
 
-    function upload() {
-        const editModal = new bootstrap.Modal(document.getElementById('upload'));
-        editModal.show();
+    function upload(id) {
+        // const form = document.querySelector(`#upload_${id} form`);
+        // const actionUrl = `{{ url('appointment') }}/${id}/pdfupload`;
+
+        // form.action = actionUrl;
+
+        const uploadModal = new bootstrap.Modal(document.getElementById(`upload_${id}`));
+        uploadModal.show();
     }
-    
 </script>
 @include('admin/footer')
