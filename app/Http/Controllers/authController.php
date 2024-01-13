@@ -26,6 +26,14 @@ class authController extends Controller
             'password' => 'required'
         ]);
 
+        $user = Auth::user();
+        // dd($user && $user->roleid == 2);
+        // log::debug($user);
+        if ($user && $user->roleid == 1) {
+            return redirect('/admin');
+        } elseif ($user && $user->roleid == 2) {
+            return redirect('/');
+        }
         $credentials = $request->only(['email', 'password']);
         if (Auth::attempt($credentials)) {
             return redirect()->intended(route(name: 'home'));
@@ -44,6 +52,7 @@ class authController extends Controller
         $data['name'] = $request->name;
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
+        $data['roleid'] = "user";
 
         $user = User::create($data);
         if (!$user) {

@@ -44,6 +44,11 @@
                                             <input class="form-control" id="password" name="password" required>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label for="address">Role:</label>
+                                            <input class="form-control" id="password" name="password" required>
+                                        </div>
+
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">Add</button>
@@ -89,6 +94,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Date</th>
+                                        <th>User Role</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -100,6 +106,7 @@
                                             <td>{{ $user->email }}</td>
                                             {{-- <td><span class="tag tag-success">Approved</span></td> --}}
                                             <td>{{ $user->created_at }}</td>
+                                            <td>{{ $user->roleid }}</td>
                                             <td>
                                                 <div class="d-flex">
                                                     <button type="button" class="btn btn-primary me-2"
