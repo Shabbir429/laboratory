@@ -12,9 +12,11 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#"><button class="btn btn-primary" onclick="addUser()">Add User</button></a>
+                    <li class="breadcrumb-item"><a href="#"><button class="btn btn-primary" onclick="addUser()">Add
+                                User</button></a>
                     </li>
-                    <div class="modal fade" id="add" tabindex="-1" aria-labelledby="editTitle" aria-hidden="true">
+                    <div class="modal fade" id="add" tabindex="-1" aria-labelledby="editTitle"
+                        aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -25,8 +27,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <!-- Your form -->
-                                    <form method="GET" id="edit"
-                                        action="{{ route('user.add') }}">
+                                    <form method="GET" id="add" action="{{ route('user.add') }}">
                                         @csrf
                                         <div class="form-group">
                                             <label for="name">Name:</label>
@@ -44,10 +45,7 @@
                                             <input class="form-control" id="password" name="password" required>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="address">Role:</label>
-                                            <input class="form-control" id="password" name="password" required>
-                                        </div>
+
 
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
@@ -106,11 +104,11 @@
                                             <td>{{ $user->email }}</td>
                                             {{-- <td><span class="tag tag-success">Approved</span></td> --}}
                                             <td>{{ $user->created_at }}</td>
-                                            <td>{{ $user->roleid }}</td>
+                                            <td>{{ App\Models\Role::find($user->roleid)->name }}</td>
                                             <td>
                                                 <div class="d-flex">
                                                     <button type="button" class="btn btn-primary me-2"
-                                                        onclick="openEditModal('{{ $user->id }}','{{ $user->name }}','{{ $user->email }}')">Edit</button>
+                                                        onclick="openEditModal('{{ $user->id }}','{{ $user->name }}','{{ $user->email }}','{{ $user->roleid }}')">Edit</button>
                                                     <form method="POST" action="{{ route('user.delete') }}"
                                                         onsubmit="return confirm('Are you sure you want to delete?')">
                                                         @csrf
@@ -123,8 +121,8 @@
                                             </td>
                                         </tr>
                                         {{-- edit modle --}}
-                                        <div class="modal fade" id="edit" tabindex="-1"
-                                            aria-labelledby="editTitle" aria-hidden="true">
+                                        <div class="modal fade" id="editModal{{ $user->id }}" tabindex="-1"
+                                            aria-labelledby="editTitle{{ $user->id }}" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -135,19 +133,32 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <!-- Your form -->
-                                                        <form method="POST" id="edit"
+                                                        <form method="POST" id="editForm{{ $user->id }}"
                                                             action="{{ route('user.edit', ['id' => $user->id]) }}">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="form-group">
                                                                 <label for="name">Name:</label>
-                                                                <input type="text" class="form-control"
+                                                                <input type="text" class="form-control" value="{{ $user->name }}"
                                                                     id="edit_name" name="edit_name" required>
                                                             </div>
 
                                                             <div class="form-group">
                                                                 <label for="address">Email:</label>
-                                                                <textarea class="form-control" id="edit_email" name="edit_email" required></textarea>
+                                                                <input class="form-control" id="edit_email" value="{{ $user->email }}"
+                                                                    name="edit_email" required />
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="address">Role:</label>
+                                                                <select name="edit_role" id="edit_role">
+                                                                    <option value="" disabled selected>Select a
+                                                                        role</option>
+                                                                    @foreach (App\Models\Role::pluck('name', 'id') as $id => $name)
+                                                                        <option value="{{ $id }}">
+                                                                            {{ $name }}</option>
+                                                                    @endforeach
+                                                                </select>
                                                             </div>
 
                                                             <button type="button" class="btn btn-secondary"
@@ -174,16 +185,15 @@
 
 </div>
 <script>
-    function openEditModal(id, name, email) {
-        document.getElementById('edit_name').value = name;
-        document.getElementById('edit_email').value = email;
+    function openEditModal(id, name, email, roleid) {
 
-        const editModal = new bootstrap.Modal(document.getElementById('edit'));
+        const editModal = new bootstrap.Modal(document.getElementById('editModal' + id));
         editModal.show();
     }
+
     function addUser() {
-        const editModal = new bootstrap.Modal(document.getElementById('add'));
-        editModal.show();
+        const addModal = new bootstrap.Modal(document.getElementById('add'));
+        addModal.show();
     }
 </script>
 @include('admin/footer')

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contactus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\log;
@@ -11,6 +12,15 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class authController extends Controller
 {
+    function dashboard()
+    {
+        return view('admin/dashboard');
+    }
+    function contact()
+    {
+        $contacts = Contactus::all();
+        return view('admin/contact', ['contacts' => $contacts]);
+    }
     function login()
     {
         return view('login');
@@ -26,17 +36,18 @@ class authController extends Controller
             'password' => 'required'
         ]);
 
-        $user = Auth::user();
-        // dd($user && $user->roleid == 2);
+        // $user = Auth::user();
+        // dd($user && $user->roleid == 1);
         // log::debug($user);
-        if ($user && $user->roleid == 1) {
-            return redirect('/admin');
-        } elseif ($user && $user->roleid == 2) {
-            return redirect('/');
-        }
+
         $credentials = $request->only(['email', 'password']);
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(route(name: 'home'));
+            $user = Auth::user();
+            if ($user->roleid == 1) {
+                return redirect('/admin');
+            } elseif ($user->roleid == 2) {
+                return redirect('/');
+            }
         } else {
             return redirect(route(name: 'login'))->with("error", "Login Details are not valid!");
         }
@@ -46,7 +57,7 @@ class authController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
         $data['name'] = $request->name;
@@ -58,7 +69,7 @@ class authController extends Controller
         if (!$user) {
             return redirect(route(name: 'signup'))->with("error", "Registration faild please try again!");
         } else {
-            return redirect(route(name: 'home'));
+            return redirect()->back();
         }
     }
 
@@ -90,10 +101,12 @@ class authController extends Controller
     function edituser(Request $request, $id)
     {
         $user = User::find($id);
-        log::debug($user);
+        // log::debug($id);
+        // log::debug($user);
 
         $user->name = $request->input('edit_name');
         $user->email = $request->input('edit_email');
+        $user->roleid = $request->input('edit_role');
 
         if ($user->save()) {
             return redirect()->back()->with('success', 'User updated successfully');

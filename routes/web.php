@@ -49,9 +49,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [authController::class, 'logout'])->name('logout');
 });
 Route::middleware(['admin'])->group(function () {
-    Route::get('/admin', function () {
-        return view('admin/dashboard');
-    })->name('admin');
+    Route::get('/admin', [authController::class, 'dashboard'])->name('admin');
+    Route::get('/admin-contact', [authController::class, 'contact'])->name('admin.contect');
 
     Route::get('/user', [authController::class, 'getusers'])->name('user.all');
     Route::get('/user/add', [authController::class, 'signuppost'])->name('user.add');
