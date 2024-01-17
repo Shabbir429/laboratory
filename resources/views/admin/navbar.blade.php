@@ -22,6 +22,7 @@
         <li class="nav-item">
             <a class="nav-link" href="/logout" role="button">
                 <i class="fas fa-sign-out-alt"></i>
+                <span class="tooltip-text">Logout</span>
             </a>
         </li>
     </ul>

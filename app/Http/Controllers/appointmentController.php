@@ -61,6 +61,13 @@ class appointmentController extends Controller
         $appointment = Appointment::all();
         return view('admin/appointment', ['appointment' => $appointment]);
     }
+    function todayappointmets()
+    {
+        $appointment = Appointment::whereDate('created_at', now())->get();
+        log::debug($appointment);
+        // dd($appointment);
+        return view('admin/appointment', ['appointment' => $appointment]);
+    }
 
     function upload(Request $request, $id)
     {

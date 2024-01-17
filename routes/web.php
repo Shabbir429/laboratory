@@ -52,6 +52,8 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin', [authController::class, 'dashboard'])->name('admin');
     Route::get('/admin-contact', [authController::class, 'contact'])->name('admin.contect');
 
+    Route::get('/today-appointment', [appointmentController::class, 'todayappointmets'])->name('appointment.all');
+
     Route::get('/user', [authController::class, 'getusers'])->name('user.all');
     Route::get('/user/add', [authController::class, 'signuppost'])->name('user.add');
     Route::delete('/user/delete', [authController::class, 'deleteuser'])->name('user.delete');

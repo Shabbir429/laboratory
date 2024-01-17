@@ -26,6 +26,33 @@
   <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
+  <style>
+    .nav-link {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    /* background-color: #333; */
+    /* color: #fff; */
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: -25%;
+    margin: 0 -100px -7px -40px; 
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.nav-link:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
