@@ -69,7 +69,7 @@ class authController extends Controller
         if (!$user) {
             return redirect(route(name: 'signup'))->with("error", "Registration faild please try again!");
         } else {
-            return redirect()->back();
+            return redirect(route(name: 'home'))->with("success", "successfully Registration!");
         }
     }
 

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('u_id')->references('id')->on('users'); 
             $table->enum('status', ['Pending', 'Rejected', 'Success'])->default('Pending');
             $table->string('path')->nullable();
+            $table->softDeletes('deleted_at', $precision = 0);
             $table->timestamps();
         });
     }

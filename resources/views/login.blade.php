@@ -46,7 +46,8 @@
         }
 
         a {
-            color: #333;
+            color: #62BB47;
+            /* Updated color */
             font-size: 14px;
             text-decoration: none;
             margin: 15px 0;
@@ -54,8 +55,10 @@
 
         button {
             border-radius: 20px;
-            border: 1px solid #FF4B2B;
-            background-color: #FF4B2B;
+            border: 1px solid #62BB47;
+            /* Updated color */
+            background-color: #62BB47;
+            /* Updated color */
             color: #FFFFFF;
             font-size: 12px;
             font-weight: bold;
@@ -171,11 +174,11 @@
         }
 
         .overlay {
-            background: #FF416C;
-            background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-            background: linear-gradient(to right, #FF4B2B, #FF416C);
+            background: #62BB47;
+            background: -webkit-linear-gradient(to right, #62BB47 0%, #62BB47 90%, #FFFFFF 90%, #FFFFFF 100%);
+            background: linear-gradient(to right, #FFFFFF ,#62BB47 );
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 100%;
             background-position: 0 0;
             color: #FFFFFF;
             position: relative;

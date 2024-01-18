@@ -8,13 +8,6 @@
     <title>Navbar</title>
     <style>
         #primary {
-            /* position: absolute;
-            top: 0;
-            margin: auto;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center; */
             height: 100%;
         }
 
@@ -25,14 +18,11 @@
 
         #primary li a {
             text-decoration: none;
-            /* display: block; */
             padding: 5px 0;
             font-family: 'Serif';
             font-size: 20px;
             line-height: 1.5;
-            /* position: relative; */
             z-index: 1;
-            /* text-align: center; */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-image: linear-gradient(to right, #62BB47, #62BB47 50%, #000000 50%);

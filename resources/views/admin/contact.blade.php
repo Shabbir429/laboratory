@@ -6,7 +6,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-        <h1>contact us</h1>
+        <h1>Contact us</h1>
     </div>
 
     <!-- Main content -->

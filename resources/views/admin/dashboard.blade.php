@@ -6,7 +6,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-        <h1>header</h1>
+        <h1>Dashboard</h1>
     </div>
 
     <!-- Main content -->
