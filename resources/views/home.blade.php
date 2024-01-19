@@ -211,11 +211,6 @@
             overflow: hidden;
         }
 
-        .custom-row:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
         .custom-row img {
             transition: transform 0.3s ease-in-out;
         }
@@ -307,13 +302,19 @@
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/pexels-edward-jenner-4031321.jpg" class="d-block w-100 backimg" alt="...">
+                    <img src="img/slider2.jpg" class="d-block w-100 backimg" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/doctor.jpg" class="d-block w-100 backimg" alt="...">
+                    <img src="img/slider8.jpg" class="d-block w-100 backimg" alt="...">
                 </div>
                 <div class="carousel-item">
                     <img src="img/maintopbg.jpg" class="d-block w-100 backimg" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/slider3.jpg" class="d-block w-100 backimg" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/slider5.jpg" class="d-block w-100 backimg" alt="...">
                 </div>
             </div>
         </div>

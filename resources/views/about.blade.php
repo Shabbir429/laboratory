@@ -162,7 +162,7 @@
             <!-- First row -->
             <div class="col-lg-6">
                 <!-- Left side (image) -->
-                <img src="img/slider1.jpg" alt="" class="img-fluid rounded-5">
+                <img src="img/slider5.jpg" alt="" class="img-fluid rounded-5">
             </div>
             <div class="col-lg-6">
                 <!-- Right side (text) -->
@@ -183,7 +183,7 @@
             <!-- Second row -->
             <div class="col-lg-6 order-md-2">
                 <!-- Right side (image) -->
-                <img src="img/slider1.jpg" alt="" class="img-fluid rounded-5">
+                <img src="img/slider3.jpg" alt="" class="img-fluid rounded-5">
             </div>
             <div class="col-lg-6 order-md-1">
                 <!-- Left side (text) -->

@@ -117,7 +117,7 @@
                         <!-- Copyright -->
                         <div class="p-3">
                             © 2024 Copyright:
-                            <a style="color:#ff0000 ;" href="home">adarsh.com</a>
+                            <a style="color:#ff0000 ;" href="/">adarsh.com</a>
                         </div>
                     </div>
 
