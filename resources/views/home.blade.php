@@ -47,15 +47,14 @@
             font-size: 20px;
             font-weight: 500;
             color: #fff;
-            background-image: linear-gradient(to right, #e052a0, #f15c41) !important;
+            background-image: linear-gradient(to right,#62BB47, #FFFFFF  ) !important;
             border-radius: 3px;
             padding: 16px 18px 15px;
-            white-space: nowrap;
         }
 
         .mybtn:hover {
-            background-color: #e6375a;
-            background-image: none !important;
+            /* background-color: linear-gradient(to right,#62BB47, #FFFFFF  ) ; */
+            background-image: linear-gradient(to right, #FFFFFF ,#62BB47 ) !important;
         }
 
         .dirive {
@@ -302,19 +301,19 @@
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/slider2.jpg" class="d-block w-100 backimg" alt="...">
+                    <img src="img/slider2.jpg" class="d-block w-100 backimg" alt="..." loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/slider8.jpg" class="d-block w-100 backimg" alt="...">
+                    <img src="img/slider8.jpg" class="d-block w-100 backimg" alt="..." loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/maintopbg.jpg" class="d-block w-100 backimg" alt="...">
+                    <img src="img/maintopbg.jpg" class="d-block w-100 backimg" alt="..." loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/slider3.jpg" class="d-block w-100 backimg" alt="...">
+                    <img src="img/slider3.jpg" class="d-block w-100 backimg" alt="..." loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/slider5.jpg" class="d-block w-100 backimg" alt="...">
+                    <img src="img/slider5.jpg" class="d-block w-100 backimg" alt="..." loading="lazy">
                 </div>
             </div>
         </div>
@@ -328,7 +327,7 @@
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                     <div class="card ovrhide">
-                        <img src="img/apple.jpg" class="card-img-top cardimg" alt="card">
+                        <img src="img/apple.jpg" class="card-img-top cardimg" alt="card" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">ALLERGY</h5>
                             <p class="card-text">MedLab Laboratory offers allergy testing for common allergic reaction
@@ -338,7 +337,7 @@
                 </div>
                 <div class="col">
                     <div class="card ovrhide">
-                        <img src="img/doctor.jpg" class="card-img-top cardimg" alt="card">
+                        <img src="img/doctor.jpg" class="card-img-top cardimg" alt="card" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">DIABETES TESTING</h5>
                             <p class="card-text">MedLab Laboratory provides a variety of diabetes risk panels to meet
@@ -348,7 +347,7 @@
                 </div>
                 <div class="col">
                     <div class="card ovrhide">
-                        <img src="img/labtest.jpg" class="card-img-top cardimg" alt="card">
+                        <img src="img/labtest.jpg" class="card-img-top cardimg" alt="card" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">PATHOLOGY TESTING</h5>
                             <p class="card-text">MedLab offers diverse tissue pathology & histology services, focusing
@@ -362,14 +361,14 @@
                 <h5 class="underline">WHAT WE DO</h5>
             </div>
             <div class="projectimg">
-                <img src="img/slider1.jpg" alt="slider">
-                <img src="img/slider2.jpg" alt="slider">
-                <img src="img/slider3.jpg" alt="slider">
-                <img src="img/slider4.jpg" alt="slider">
-                <img src="img/slider5.jpg" alt="slider">
-                <img src="img/slider6.jpg" alt="slider">
-                <img src="img/slider7.jpg" alt="slider">
-                <img src="img/slider8.jpg" alt="slider">
+                <img src="img/slider1.jpg" alt="slider" loading="lazy">
+                <img src="img/slider2.jpg" alt="slider" loading="lazy">
+                <img src="img/slider3.jpg" alt="slider" loading="lazy">
+                <img src="img/slider4.jpg" alt="slider" loading="lazy">
+                <img src="img/slider5.jpg" alt="slider" loading="lazy">
+                <img src="img/slider6.jpg" alt="slider" loading="lazy">
+                <img src="img/slider7.jpg" alt="slider" loading="lazy">
+                <img src="img/slider8.jpg" alt="slider" loading="lazy">
             </div>
             <div class="text-center headingset">
                 <h4>TAKE CARE OF YOUR HEALTH</h4>

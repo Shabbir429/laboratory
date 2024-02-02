@@ -13,7 +13,6 @@ class appointmentController extends Controller
     public function index()
     {
         $userAppointments = Appointment::where('u_id', auth()->user()->id)->get();
-        // Log::debug($userAppointments);
         return view('yourord', compact('userAppointments'));
     }
     public function store(Request $request)
@@ -24,9 +23,7 @@ class appointmentController extends Controller
             'appointment_date' => 'required|date',
             'phone' => 'required|numeric',
         ]);
-        // $validatedData['status'] = 'pendding';
         $validatedData['u_id'] = Auth::id();
-        // Log::debug($validatedData);
         Appointment::create($validatedData);
 
         return redirect()->back()->with('success', 'Appointment booked successfully!');
@@ -36,7 +33,6 @@ class appointmentController extends Controller
     {
         $appointmentId = $request->input('id');
         $appointment = Appointment::find($appointmentId);
-        // log::debug($appointment);
         if ($appointment) {
             $appointment->delete();
             return redirect()->back()->with('success', 'Appointment deleted successfully');
@@ -47,12 +43,10 @@ class appointmentController extends Controller
     public function updateappo(Request $request, $id)
     {
         $appointment = Appointment::findOrFail($request->input('edit_id'));
-        // Update appointment details based on form input
         $appointment->name = $request->input('edit_name');
         $appointment->address = $request->input('edit_address');
         $appointment->appointment_date = $request->input('edit_appointment_date');
         $appointment->phone = $request->input('edit_phone');
-        // log::debug($appointment);
         $appointment->save();
         return redirect()->back()->with('success', 'Appointment Edited successfully');
     }
@@ -65,7 +59,6 @@ class appointmentController extends Controller
     {
         $appointment = Appointment::whereDate('created_at', now())->get();
         log::debug($appointment);
-        // dd($appointment);
         return view('admin/appointment', ['appointment' => $appointment]);
     }
 
@@ -74,9 +67,6 @@ class appointmentController extends Controller
         $request->validate([
             'file' => 'required|mimes:pdf,xlx,csv|max:2048',
         ]);
-        // log::debug($request->input('id'));
-        // log::debug("hello");
-        // log::debug($id);
         $appointment = Appointment::findOrFail($id);
         $file = $request->file('file');
         $fileName = time() . '.' . $file->extension();

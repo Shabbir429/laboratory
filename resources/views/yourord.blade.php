@@ -77,31 +77,31 @@
                         <!-- Your form -->
                         <form method="POST" action="/yorder">
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <label for="name">Name:</label>
                                 <input type="text" class="form-control" id="name" name="name"
                                     placeholder="Enter your name" required>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <label for="address">Address:</label>
                                 <textarea class="form-control" id="address" name="address" placeholder="Enter your address" required></textarea>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <label for="appointment_date">Appointment Date:</label>
                                 <input type="date" class="form-control" id="appointment_date" name="appointment_date"
                                     required min="<?php echo date('Y-m-d'); ?>">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <label for="phone">Mobile Number:</label>
                                 <input type="text" class="form-control" id="phone" name="phone"
                                     placeholder="Enter your mobile number" pattern="[0-9]+"
                                     title="Please enter numbers only" required>
                             </div>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
                         </form>
                     </div>
                 </div>
