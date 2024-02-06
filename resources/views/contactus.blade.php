@@ -329,7 +329,7 @@
                 <div class="contact-info">
                     <div class="contact-info-item">
                         <div class="contact-info-icon">
-                            <i class="fas fa-home" style="font-size: 30px;margin-top:16px;color:#ff0000;"></i>
+                            <i class="fas fa-home" style="font-size: 30px;margin-top:18px;color:#ff0000;"></i>
                         </div>
 
                         <div class="contact-info-content">
@@ -340,7 +340,7 @@
 
                     <div class="contact-info-item">
                         <div class="contact-info-icon">
-                            <i class="fas fa-phone" style="font-size: 30px;margin-top:16px;color:#ff0000;"></i>
+                            <i class="fas fa-phone" style="font-size: 30px;margin-top:18px;color:#ff0000;"></i>
                         </div>
 
                         <div class="contact-info-content">
@@ -351,7 +351,7 @@
 
                     <div class="contact-info-item">
                         <div class="contact-info-icon">
-                            <i class="fas fa-envelope" style="font-size: 30px;margin-top:16px;color:#ff0000;"></i>
+                            <i class="fas fa-envelope" style="font-size: 30px;margin-top:18px;color:#ff0000;"></i>
                         </div>
 
                         <div class="contact-info-content">
