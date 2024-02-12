@@ -40,7 +40,6 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Dashboard
-                {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>
           </li>
@@ -49,7 +48,6 @@
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Users
-                {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>
           </li>
@@ -58,7 +56,6 @@
               <i class="nav-icon fas fa-list"></i>
               <p>
                 Appointments
-                {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>
           </li>
@@ -67,7 +64,22 @@
               <i class="nav-icon fas fa-envelope"></i>
               <p>
                 ContactUs
-                {{-- <span class="right badge badge-danger">New</span> --}}
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/profile" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Profile
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+                Logout
               </p>
             </a>
           </li>

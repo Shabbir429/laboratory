@@ -24,7 +24,7 @@
             width: 100%;
             height: 100%;
             z-index: 9999;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: white;
             display: flex;
             justify-content: center;
             align-items: center;

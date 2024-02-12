@@ -17,6 +17,9 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="/admin-contact" class="nav-link">Contact</a>
         </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/profile" class="nav-link">Profile</a>
+        </li>
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
