@@ -89,7 +89,8 @@
                             </div>
 
                             <div class="form-group mt-3">
-                                <label for="appointment_date">Appointment Date:</label>
+                                <label for="appointment_date">Appointment
+                                    Date:</label>
                                 <input type="date" class="form-control" id="appointment_date" name="appointment_date"
                                     required min="<?php echo date('Y-m-d'); ?>">
                             </div>
@@ -160,8 +161,10 @@
                                         <form method="POST"
                                             action="{{ route('pdf.appointments', ['id' => $appointment->id]) }}">
                                             @csrf
-                                            <button type="submit" class="btn btn-primary me-2"
-                                                style="width: 120px;">View Report</button>
+                                            <button type="submit" class="btn btn-primary me-2" style="width: 120px;">
+                                                
+                                                @php if ($appointment->status === 'Pending') { echo 'Waiting';} else { echo 'View Report';} @endphp
+                                            </button>
                                         </form>
                                     </div>
                                     {{-- edit modle --}}

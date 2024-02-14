@@ -70,6 +70,7 @@
             background-image: linear-gradient(to right, #62BB47, #FFFFFF) !important;
             border-radius: 3px;
             padding: 16px 18px 15px;
+            border-radius:10px; 
         }
 
         .mybtn:hover {
@@ -491,7 +492,7 @@
                         diseases and personalized treatment plans, promoting proactive and informed healthcare for
                         individuals.</p>
 
-                    <a href="/yorder"><button type="button" class="btn btn-primary"> Take Appoitment </button></a>
+                    <a href="/yorder"><button type="button" style="border-radius:50px; " class="btn btn-primary"> Take Appoitment </button></a>
                 </div>
             </div>
         </div>
