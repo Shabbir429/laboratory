@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('contactus', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('number');
+            $table->string('name',30);
+            $table->string('email',40)->unique();
+            $table->string('phone',30);
             $table->text('message');
             $table->timestamps();
         });

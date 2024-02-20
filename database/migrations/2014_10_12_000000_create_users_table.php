@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name',30);
+            $table->string('email',40)->unique();
             $table->unsignedBigInteger('roleid')->default(2);
             // $table->foreign('roleid')->references('id')->on('roles');
             $table->timestamp('email_verified_at')->nullable();

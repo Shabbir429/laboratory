@@ -66,10 +66,21 @@ class authController extends Controller
         $data['roleid'] = "user";
 
         $user = User::create($data);
-        if (!$user) {
-            return redirect(route(name: 'signup'))->with("error", "Registration faild please try again!");
+        // if (!$user) {
+        //     return redirect(route(name: 'signup'))->with("error", "Registration faild please try again!");
+        // } else {
+        //     return redirect('/');
+        // }
+        $credentials = $request->only(['email', 'password']);
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            if ($user->roleid == 1) {
+                return redirect('/admin');
+            } elseif ($user->roleid == 2) {
+                return redirect('/');
+            }
         } else {
-            return redirect(route(name: 'home'))->with("success", "successfully Registration!");
+            return redirect(route(name: 'login'))->with("error", "Login Details are not valid!");
         }
     }
 

@@ -18,7 +18,7 @@ class contactusController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string',
             'email' => 'required|string',
-            'number' => 'required|numeric',
+            'phone' => 'required|numeric',
             'message' => 'required|string',
         ]);
         // Log::debug($validatedData);
