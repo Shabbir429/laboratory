@@ -3,100 +3,207 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Profile</title>
     <style>
-        * {
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
-        .main {
-            width: 100%;
-            height: 100vh;
+        #algn {
+            height: 92vh;
+            min-height: 500px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            background-image: url(https://tinypic.host/images/2023/03/20/Shapes-Abstraction-Background-2466799.jpg);
-            background-position: center;
-            background-size: cover;
-        }
-
-        .profile-card {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            max-width: 400px;
-            width: 100%;
-            border-radius: 25px;
-            padding: 30px;
-            border: 1px solid #ffffff40;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .image {
-            position: relative;
-            height: 150px;
-            width: 150px;
-        }
-
-        .image:hover .profile-pic {
-            transform: scale(1.1);
-        }
-
-        .image .profile-pic {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); */
-            transition: transform 0.3s ease;
-        }
-
-        .data {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .data h2 {
-            font-size: 33px;
-            font-weight: 600;
+        #card {
+            width: 370px;
+            height: 435px;
+            border: none;
+            border-radius: 15px;
             overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            max-width: 250px;
+            box-shadow: 0 4px 8px 0 #E7E9EB, 0 6px 20px 0 #E7E9EB;
         }
 
-        span {
-            font-size: 18px;
+        #upper-bg {
+            width: 100%;
+            height: 35%;
+            background-color: #FFE400;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-pic {
+            width: 35%;
+            background-color: white;
+            border: 3px solid #FFE400;
+            border-radius: 50%;
+            padding: 3px;
+            position: absolute;
+            top: 40px;
+        }
+
+        #lower-bg {
+            width: 100%;
+            height: 65%;
+        }
+
+        .text {
+            text-align: center;
+            padding-top: 35px;
+        }
+
+        .text .name {
+            font-weight: 600;
+            font-size: large;
+            padding: 0;
+            margin: 5px;
+        }
+
+        .text .title {
+            padding: 0;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        #icons {
+            display: flex;
+            justify-content: center;
+            margin: 15px;
+        }
+
+        #icons img {
+            width: 80%;
+            height: 90%;
+        }
+
+        .ico {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #btn {
+            display: flex;
+            justify-content: center;
+            margin: 15px;
+        }
+
+        #btn button {
+            margin: 0 20px;
+            padding: 10px 15px;
+            background-color: #FFE400;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        #btn button:hover {
+            box-shadow: 0 4px 8px 0 #E7E9EB, 0 6px 20px 0 #E7E9EB;
+        }
+
+        #l-c-s {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 10px;
+        }
+
+        #l-c-s .num {
+            display: flex;
+        }
+
+        #l-c-s .dvr {
+            width: 2px;
+            height: 25px;
+            background-color: gray;
+        }
+
+        #l-c-s img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .license {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .license .ll {
+            padding: 0 10px;
+            display: inline;
         }
     </style>
 </head>
 
 <body>
     @include('navbar')
-    <div class="container">
-        <section class="main">
-            <div class="profile-card">
-                <div class="image">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxivAs4UknzmDfLBXGMxQkayiZDhR2ftB4jcIV7LEnIEStiUyMygioZnbLXCAND-I_xWQpVp0jv-dv9NVNbuKn4sNpXYtLIJk2-IOdWQNpC2Ldapnljifu0pnQqAWU848Ja4lT9ugQex-nwECEh3a96GXwiRXlnGEE6FFF_tKm66IGe3fzmLaVIoNL/s1600/img_avatar.png"
-                        alt="" class="profile-pic">
+    <div id="algn">
+        <div id="card">
+            <div id="upper-bg">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxivAs4UknzmDfLBXGMxQkayiZDhR2ftB4jcIV7LEnIEStiUyMygioZnbLXCAND-I_xWQpVp0jv-dv9NVNbuKn4sNpXYtLIJk2-IOdWQNpC2Ldapnljifu0pnQqAWU848Ja4lT9ugQex-nwECEh3a96GXwiRXlnGEE6FFF_tKm66IGe3fzmLaVIoNL/s1600/img_avatar.png"
+                    alt="" class="profile-pic">
+            </div>
+            <div id="lower-bg">
+                <div class="text">
+                    <p class="name">{{ Auth::user()->name }}</p>
+                    <p class="title">Web developer & <br> Competitive programmer</p>
                 </div>
-                <div class="data">
-                    <h2>{{ Auth::user()->name }}</h2>
-                    <span>Thank For Connecting with us.</span>
+                <div id="icons">
+                    <a href="#" class="ico"><img width="48" height="48"
+                            src="https://img.icons8.com/color/48/gmail-new.png" alt="gmail-new" /></a>
+                    <a href="#" class="ico">
+                        <img width="48" height="48" src="https://img.icons8.com/fluency/48/github.png"
+                            alt="github" />
+                    </a>
+                    <a href="#" class="ico">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/linkedin.png"
+                            alt="linkedin" />
+                    </a>
+                    <a href="#" class="ico">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/facebook-new.png"
+                            alt="facebook-new" />
+                    </a>
+                </div>
+                <div id="btn">
+                    <button class="msg">Subscribe</button>
+                    <button class="msg">Message</button>
+                </div>
+                <div id="l-c-s">
+                    <div class="num">
+                        <img width="48" height="48"
+                            src="https://img.icons8.com/fluency-systems-regular/48/facebook-like--v1.png"
+                            alt="facebook-like--v1" />
+                        <span>35k</span>
+                    </div>
+                    <div class="num dvr"></div>
+                    <div class="num">
+                        <img width="48" height="48"
+                            src="https://img.icons8.com/fluency-systems-regular/48/speech-bubble--v1.png"
+                            alt="speech-bubble--v1" />
+                        <span>20k</span>
+                    </div>
+                    <div class="num dvr"></div>
+                    <div class="num">
+                        <img width="48" height="48" src="https://img.icons8.com/pulsar-line/48/share.png"
+                            alt="share" />
+                        <span>15k</span>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
+
     @include('footer')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
 </body>
 
 </html>

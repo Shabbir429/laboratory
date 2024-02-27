@@ -362,7 +362,7 @@
                 </div>
 
                 <div class="contact-form">
-                    <form action="/contact" id="contact-form" method="POST">
+                    <form action="/contact" id="contact-form" method="post">
                         @csrf
                         <h2>Send Message</h2>
                         <div class="input-box">
@@ -375,8 +375,7 @@
                             <span>Email</span>
                         </div>
                         <div class="input-box">
-                            <input type="text" pattern="[0-9]+" title="Please enter numbers only" required="true"
-                                name="number">
+                            <input type="text" pattern="[0-9]+" title="Please enter numbers only" required="true" name="phone">
                             <span>Number</span>
                         </div>
 
@@ -386,11 +385,10 @@
                         </div>
 
                         <div class="input-box">
-                            <input type="submit" value="Send" name="">
+                            <input type="submit" value="Send" name="submit">
                         </div>
                     </form>
                 </div>
-                <!-- HTML structure -->
                 @if (session('success'))
                     <div class="message-container">
                         <div class="message alert alert-success alert-dismissible fade show message-slide"

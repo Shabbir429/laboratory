@@ -20,13 +20,10 @@ Route::get('/', function () {
     return view('login');
 });
 Route::middleware(['auth'])->group(function () {
-    // Routes that require authentication
     Route::get('/', function () {
         return view('home');
     })->name('home');
-    // Route::get('/home', function () {
-    //     return view('home');
-    // })->name('home');
+    
     Route::get('/profile', function () {
         return view('profile');
     })->name('profile');
@@ -53,7 +50,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin-contact', [authController::class, 'contact'])->name('admin.contect');
 
     Route::get('/today-appointment', [appointmentController::class, 'todayappointmets'])->name('appointment.all');
-
+    
     Route::get('/user', [authController::class, 'getusers'])->name('user.all');
     Route::get('/user/add', [authController::class, 'signuppost'])->name('user.add');
     Route::delete('/user/delete', [authController::class, 'deleteuser'])->name('user.delete');
@@ -63,4 +60,3 @@ Route::get('/login', [authController::class, 'login'])->name('login');
 Route::post('/login', [authController::class, 'loginpost'])->name('login.post');
 Route::get('/signup', [authController::class, 'signup'])->name('signup');
 Route::post('/signup', [authController::class, 'signuppost'])->name('signup.post');
-Route::get('/logout', [authController::class, 'logout'])->name('logout');

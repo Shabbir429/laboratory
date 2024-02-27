@@ -13,7 +13,7 @@ class contactusController extends Controller
     {
         return view('contactus');
     }
-    public function store(request $request)
+    function store(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required|string',
@@ -21,9 +21,13 @@ class contactusController extends Controller
             'phone' => 'required|numeric',
             'message' => 'required|string',
         ]);
-        // Log::debug($validatedData);
-        Contactus::create($validatedData);
-
-        return redirect()->back()->with('success', 'We will Message Soon!');
+        $contact=Contactus::create($validatedData);
+        if($contact){
+            return redirect()->back()->with('success', 'We will Message Soon!');
+        }
+        else{
+            Log::debug("err");
+            return redirect("/");
+        }
     }
 }

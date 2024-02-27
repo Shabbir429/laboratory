@@ -12,7 +12,7 @@ class Contactus extends Model
         'id',
         'name', 
         'email', 
-        'number', 
+        'phone', 
         'message'
     ];
     protected $table = 'contactus';
