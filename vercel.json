@@ -1,15 +1,11 @@
 {
-    "version": 3,
+    "version": 2,
     "functions": {
-        "api": {
-            "runtime": "vercel-php@0.3.1",
-            "handler": "api/index.php"
+        "api/index.php": {
+            "runtime": "vercel-php@0.3.1"
         }
     },
     "routes": [
-        {
-            "handle": "filesystem"
-        },
         {
             "src": "/(.*)",
             "dest": "/api/index.php"
@@ -18,7 +14,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://laboratory-nine.vercel.app",
+        "APP_URL": "https://bot.laravel-livewire.com",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
