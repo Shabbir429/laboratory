@@ -84,7 +84,11 @@ class appointmentController extends Controller
     {
         $data=Appointment::find($id);
         $path=$data->path;
-        
-        return response()->file(public_path($path), ['content-type' => 'application/pdf']);
+        if($path!=null){
+            return response()->file(public_path($path), ['content-type' => 'application/pdf']);
+        }
+        else{
+            return redirect('/yorder');
+        }
     }
 }

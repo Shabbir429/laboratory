@@ -53,9 +53,8 @@
             <div class="half-width">
                 <h1><b>Appointment</b></h1>
                 <h2>Booking</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A minima est, similique quod consequuntur
-                    dignissimos distinctio commodi eveniet omnis quia, maxime molestiae quisquam soluta illum ab sequi
-                    illo quas ipsum.</p>
+                <p>I hope this message finds you in good health. I am writing to confirm your upcoming health check-up
+                    appointment scheduled for Date at Time. The appointment will take place at Address.</p>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Book Now
                 </button>
@@ -162,8 +161,14 @@
                                             action="{{ route('pdf.appointments', ['id' => $appointment->id]) }}">
                                             @csrf
                                             <button type="submit" class="btn btn-primary me-2" style="width: 120px;">
-                                                
-                                                @php if ($appointment->status === 'Pending') { echo 'Waiting';} else { echo 'View Report';} @endphp
+
+                                                @php
+                                                    if ($appointment->status === 'Pending') {
+                                                        echo 'Waiting';
+                                                    } else {
+                                                        echo 'View Report';
+                                                    }
+                                                @endphp
                                             </button>
                                         </form>
                                     </div>
