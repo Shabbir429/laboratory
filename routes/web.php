@@ -23,7 +23,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('home');
     })->name('home');
-    
+    Route::get('/slide', function () {
+        return view('admin/slidebar2');
+    });
+
     Route::get('/profile', function () {
         return view('profile');
     })->name('profile');
