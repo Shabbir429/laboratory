@@ -396,7 +396,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col"
                     <div class="card ovrhide">
                         <img src="img/labtest.jpg" class="card-img-top cardimg" alt="card" loading="lazy">
                         <div class="card-body">

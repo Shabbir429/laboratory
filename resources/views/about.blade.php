@@ -248,7 +248,7 @@
                                     src="img/profile-pic (3).png">
                             </div>
                             <p class="text-blk name">
-                                Mr. H. H. Sunasara
+                                Mr. H. S. Sunasara
                             </p>
                             <p class="text-blk position">
                                 Instructor
